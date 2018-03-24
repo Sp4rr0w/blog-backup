@@ -1,11 +1,15 @@
 <!--Footer-->
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+Total <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span> views.
+您是Sparrow博客的第<span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span>个小伙伴.
 <footer class="mdl-mini-footer" id="bottom">
     <% if(theme.scheme === 'Paradox') { %>
         <!-- Paradox Footer Left Section -->
         <%- partial('_partial/footer-left') %>
 
         <!--Copyright-->
-        <div id="copyright">
+        <!-- <div id="copyright">
             Copyright&nbsp;©<% if(theme.copyright_since) { %>&nbsp;<%= theme.copyright_since %>&nbsp;-<% } %><script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script><%- config.title %>
             <% if(theme.footer_text) { %>
                 <br>
@@ -15,7 +19,7 @@
                     <%- theme.footer_text %>
                 <% } %>
             <% } %>
-        </div>
+        </div>-->
 
         <!-- Paradox Footer Right Section -->
 
@@ -26,10 +30,7 @@
         很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
         它不会影响美观并可以给开发者很大的支持。 :)
         -->
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-Total <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span> views.
-您是Sparrow博客的第<span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span>个小伙伴.
+
         <div class="mdl-mini-footer--right-section">
             <div>
                 <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
@@ -38,3 +39,4 @@ Total <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></s
         </div>
     <% } %>
 </footer>
+
