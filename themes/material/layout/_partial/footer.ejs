@@ -1,15 +1,12 @@
 <!--Footer-->
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-Total <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span> views.
-您是Sparrow博客的第<span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span>个小伙伴.
+
 <footer class="mdl-mini-footer" id="bottom">
     <% if(theme.scheme === 'Paradox') { %>
         <!-- Paradox Footer Left Section -->
         <%- partial('_partial/footer-left') %>
 
         <!--Copyright-->
-        <!-- <div id="copyright">
+        <div id="copyright">
             Copyright&nbsp;©<% if(theme.copyright_since) { %>&nbsp;<%= theme.copyright_since %>&nbsp;-<% } %><script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script><%- config.title %>
             <% if(theme.footer_text) { %>
                 <br>
@@ -19,7 +16,11 @@ Total <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></s
                     <%- theme.footer_text %>
                 <% } %>
             <% } %>
-        </div>-->
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+.  Total <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span> views.
+您是Sparrow博客的第<span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span>个小伙伴.
+        </div>
 
         <!-- Paradox Footer Right Section -->
 

@@ -1,12 +1,14 @@
 ---
 title: 交叉编译netcat在路由器上使用 - 从入门到放弃再到success
 date: 2017-11-27 22:25:51
+categories:
+   - 技术相关
 tags: 
    - 交叉编译
    - netcat
    - 路由器
 ---
-
+<!-- more -->
 Author : https://sp4rr0w.github.io 
 Time : 2017-11-27 22:25:51
 Router Model : RT-N12

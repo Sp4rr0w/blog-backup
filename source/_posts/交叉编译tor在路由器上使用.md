@@ -1,12 +1,14 @@
 ---
 title: 交叉编译tor在路由器上使用
 date: 2017-12-07 10:23:00
+categories:
+   - 技术相关
 tags:
    - 交叉编译
    - tor
    - 路由器
 ---
-
+<!-- more -->
 Router Model : RT-AC66U
 Router CPU : MIPS32
 
