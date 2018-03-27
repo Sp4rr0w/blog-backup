@@ -393,7 +393,7 @@ Toolchain type (Buildroot toolchain)  ---> [*] Enable stack protection support
 GCC compiler Version --> gcc 4.6.x
 ```
 **buildroot choose**
-/img/2011-05-toolchain_choose.png
+![buildroot choose](交叉编译tor在路由器上使用/2011-05-toolchain_choose.png)
 
 设置变量 :
 ```
@@ -441,7 +441,7 @@ make[1]: *** [src/common/aes.o] Error 1
 ./configure --host=mipsel-linux --disable-tool-name-check --prefix=/root/Desktop/cross/yes/tor CC="$MIPSEL_LINUX_PATH3/mipsel-linux-gcc -std=gnu99" AR=$MIPSEL_LINUX_PATH3/mipsel-linux-ar RANLIB=$MIPSEL_LINUX_PATH3/mipsel-linux-ranlib LD=$MIPSEL_LINUX_PATH3/mipsel-linux-ld STRIP=$MIPSEL_LINUX_PATH3/mipsel-linux-strip --enable-static-libevent --with-libevent-dir=/root/Desktop/cross/yes/libevent2 --enable-static-openssl --with-openssl-dir=/root/Desktop/cross/yes/openssl2 --enable-static-zlib --with-zlib-dir=/root/Desktop/cross/yes/zlib2 --disable-gcc-hardening
 ```
 **./configure**
-/img/configure_tor.png
+![configure](交叉编译tor在路由器上使用/configure_tor.png)
 
 make 报警告
 ```
@@ -456,7 +456,7 @@ $ file tor
 tor: ELF 32-bit LSB executable, MIPS, MIPS32 version 1 (SYSV), dynamically linked (uses shared libs), with unknown capability 0xf41 = 0x756e6700, with unknown capability 0x70100 = 0x3040000, not stripped
 ```
 **tor**
-/img/file_tor.png
+![tor](交叉编译tor在路由器上使用/file_tor.png)
 
 tor `9468 kb`
 压缩传到http网盘上去 tor.zip `3730 kb`
@@ -481,14 +481,14 @@ wget http://ip/tor 即可.
 ```
 
 **running tor**
-/img/router_tor.png
+![running tor](交叉编译tor在路由器上使用/router_tor.png)
 
 之前我怀疑传到路由器上的tor运行时需要某些库文件的,运行发现是不需要的
 	
 但是还是有segmentation fault。
 还是要用QEMU模拟MIPS测试....
 
-0x06 qemu模拟mips运行tor
+## 0x06 qemu模拟mips运行tor
 
 转到Ubuntu的
 拷贝buildroot编译成的rootfs.tar（buildroot-2011.05 /output/ images）
@@ -496,7 +496,7 @@ wget http://ip/tor 即可.
 
 之后直接运行TOR（qemu的安装后会自动识别MIPS类型的文件）
 在Ubuntu中运行qemu
-/img/running_tor_in_ubuntu.png
+![running tor](交叉编译tor在路由器上使用/running_tor_in_ubuntu.png)
 
 QEMU模拟MIPS运行TOR完美运行成功！
 

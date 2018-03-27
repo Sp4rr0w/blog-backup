@@ -9,6 +9,7 @@ tags:
    - 路由器
 ---
 <!-- more -->
+
 Author : https://sp4rr0w.github.io 
 Time : 2017-11-27 22:25:51
 Router Model : RT-N12
@@ -93,10 +94,10 @@ make manuconfig
 ```
 
 **Buildroot Configuration**
-/img/Buildroot_Configuration.png
+![Buildroot Configuration](交叉编译netcat在路由器上使用 - 从入门到放弃再到success/Buildroot_Configuration.png)
 
 **选择 Target options**
-/img/Target_options.png
+![Target options](交叉编译netcat在路由器上使用 - 从入门到放弃再到success/Target_options.png)
 ```
 Target Architecture		---> 	`MIPS (little endian)` 
 Target Architecture Variant	---> 	`Generic MIPS32 ` 
@@ -115,7 +116,7 @@ mips-linux-gcc          mipsel-linux-gcc
 选择mips32 little endian 即会生成mipsel-linux-gcc。
 
 **Toolchian 选择3.2 (里面最低内核版本)**
-/img/Toolchain.png
+![Toolchian](交叉编译netcat在路由器上使用 - 从入门到放弃再到success/Toolchain.png)
 ```
 Kernel Headers	---> 	`Linux 3.2.x kernel headers`  
 ````
@@ -302,7 +303,7 @@ http://s.dropcanvas.com/1000000/923000/922746/netcat_2011_05
 Nice!!!! 
 
 **running netcat**
-/img/router_netcat.png
+![running netcat](交叉编译netcat在路由器上使用 - 从入门到放弃再到success/router_netcat.png)
 (AC66U and RT-N12 一樣的CPU)
 
 这里还有个小点，放到Ubuntu的时候 使用qemu-mipsel执行netcat 依旧无法使用，猜测qemu版本问题，
