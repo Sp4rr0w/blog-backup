@@ -1,5 +1,6 @@
 ---
 title: tags
-date:
-layout: tags
+date: 
+type: "tags"
+comments: false
 ---

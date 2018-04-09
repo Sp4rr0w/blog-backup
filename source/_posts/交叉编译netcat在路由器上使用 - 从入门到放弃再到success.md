@@ -7,15 +7,15 @@ tags:
    - 交叉编译
    - netcat
    - 路由器
+#summary_img: /images/material-5.png
 ---
+.....
 <!-- more -->
-
+## 路由器架构
 Author : https://sp4rr0w.github.io 
 Time : 2017-11-27 22:25:51
 Router Model : RT-N12
 Router CPU : MIPS32
-
-## 1. 路由器架构
 
 ```
 admin@RT-N12:/tmp/home/root
@@ -43,7 +43,7 @@ instructions            : 2147483648
 ```
     
 
-## 2. 先编译buildroot 
+## 先编译buildroot 
 可知`路由器CPU`为 `MIPS`。由同事告知可以先编译`buildroot`生成的gcc之后再指定编译`netcat`，这样可以在路由器上运行。
 
 `折腾`之路由此开始
@@ -151,7 +151,7 @@ and
 ```
 
 
-## 3. 编译netcat
+## 编译netcat
 
 下载netcat
 ```

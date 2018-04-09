@@ -4,7 +4,9 @@ date: 2017-11-25 00:00:00
 categories:
    - 其他
 tags:
+summary_img: /images/favicon.png
 ---
+.....
 <!-- more -->
 
 ```
@@ -22,12 +24,15 @@ hexo init
 hexo server
 
 current folder
-https://www.jianshu.com/p/53f37196f6e7
 sudo npm install hexo-deployer-git --save
 sudo npm install hexo-generator-feed --save
 sudo npm install hexo-generator-sitemap --save
 sudo npm install hexo-generator-search --save
 sudo npm install hexo-front-matter-excerpt --save
+sudo npm install hexo-generator-index --save
+sudo npm install hexo-generator-archive --save 
+sudo npm install hexo-generator-tag --save
+sudo npm install hexo-asset-image --save
 sudo npm install hexo-git-backup --save
 sudo npm install shelljs --save
 
@@ -39,7 +44,7 @@ deploy:
 
 backup:
     type: git
-    theme: landscape
+    theme: landscape,next
     repository:
        github: git@github.com:Sp4rr0w/blog-backup.git,master
        
@@ -79,20 +84,64 @@ search:
 baidu_site_id: 
 
 
-categories:
-- 技术相关
-tags:
-- PS3
-- Games
-
-pages:
-	标签云: 
-	    link: "/tags"
-            icon: person
-            divider: false
-
+hexo b
             
 hexo-front-matter-excerpt 这个插件，默认是读取 <!-- more -->
 
+sparrow logo : https://i.loli.net/2018/03/26/5ab8be73b5b56.png
+
+sudo npm install hexo-asset-image --save   图片引用
+post_asset_folder: true
+hexo n "new artitle"
+![xxx](new artitle/img.jpg)
+
+
+
+换成 next 主题：
+
+git clone https://github.com/iissnan/hexo-theme-next.git themes/next
+好用多了
+容易配置
+
+
+站点配置文件
+archive_generator:
+  per_page: 20
+  yearly: true
+  monthly: true
+
+tag_generator:
+  per_page: 10
+
+  
+  
+  about ：
+   没什么写的，有事留言吧!
+
 ```
+文章封面 
+
+    https://neveryu.github.io/2017/07/15/hexo-next-five/
+    修改 \themes\next\layout\_macro\post.swing 文件。
+
+        {% if is_index %}
+        <!-- 文章摘要图片 -->
+        {% if post.summary_img  %}
+        <div class="out-img-topic">
+        <img src={{ post.summary_img }} class="img-topic">
+        </div>
+        {% endif %}
+        <!-- 文章摘要图片 -->
+  
+  
+之后： 
+
+    ---
+    title: Blog Install
+    date: 2017-11-25 00:00:00
+    categories:
+       - 其他
+    tags:
+    summary_img: /images/avatar.png
+    ---
 

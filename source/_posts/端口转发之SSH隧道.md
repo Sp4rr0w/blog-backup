@@ -1,23 +1,24 @@
 ---
 title: 端口转发之SSH隧道
-date: 2018-03-29 15:20:00
+date: 2018-01-17 15:20:00
 categories:
    - 技术相关
 tags:
    - 端口转发
    - SSH隧道
    - 笔记
+#summary_img: /images/pic1.jpg
 ---
+.....
 <!-- more -->
 
-## 0x01 ssh隧道有3种类型
-
+## ssh隧道有3种类型
     动态端口转发（Socks 代理）
     本地端口转发
     远程端口转发
 
 
-## 0x01 本地端口转发
+## 本地端口转发
 
 通过SSH隧道，将一个远端机器能够访问到的地址和端口，映射为一个本地的端口。
 
@@ -58,7 +59,7 @@ tags:
 
 	
 	
-## 0x02 动态端口转发
+## 动态端口转发
 既然SSH可以传送数据，那么我们可以让那些不加密的网络连接，全部改走SSH连接，从而提高安全性
 
 动态端口允许通过配置一个本地端口，把通过隧道到数据转发到远端的所有地址。
@@ -83,7 +84,7 @@ SSH连接上面，发往远程主机。
 	应用程序需要额外配置SOCKS代理，若应用程序不支持代理配置则无法使用
 
 
-## 0x03 远程端口转发
+## 远程端口转发
 远程端口转发用于某些单向阻隔的内网环境，比如说NAT，网络防火墙。
 在NAT设备之后的内网主机可以直接访问公网主机，但外网主机却无法访问内网主机的服务。
 如果内网主机向外网主机建立一个远程转发端口，就可以让外网主机通过该端口访问该内网主机的服务。
@@ -136,7 +137,7 @@ host1监听它自己的2121端口，然后将所有数据经由host3，转发到
 	AllowTcpForwarding no
 
 
-## 0x04 简而言之
+## 简而言之
 	http://staff.washington.edu/corey/fw/ssh-port-forwarding.html
 
 	本地访问127.0.0.1:port1就是host:port2(用的更多)
@@ -152,7 +153,7 @@ host1监听它自己的2121端口，然后将所有数据经由host3，转发到
 	ssh -qTfnN -R port:dmz_host:hostport -l user remote_ip   #反向隧道，用于内网穿透防火墙限制之类
 
 	
-## 0x05 SSH 穿透
+## SSH 穿透
 
 	ssh -D 127.0.0.1:1080 -p 22 user@IP 
 	Add socks4 127.0.0.1 1080 in /etc/proxychains.conf 
@@ -202,5 +203,7 @@ from :
 	http://blog.csdn.net/pipisorry/article/details/52269785
 	ssh隧道建立
 	http://blog.csdn.net/yuanchao99/article/details/72877586
-    xxxx
-    https://xianzhi.aliyun.com/forum/topic/142
+    	xxxx
+    	https://xianzhi.aliyun.com/forum/topic/142
+	SSH隧道综合指南
+	https://www.4hou.com/technology/10863.html

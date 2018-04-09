@@ -7,13 +7,14 @@ tags:
    - 交叉编译
    - tor
    - 路由器
+#summary_img: /images/material-13.png
 ---
+.....
 <!-- more -->
+## 正常编译tor 
+
 Router Model : RT-AC66U
 Router CPU : MIPS32
-
-
-## 正常编译tor 
 在 `Ubuntu` 下
 
 ```
@@ -488,7 +489,7 @@ wget http://ip/tor 即可.
 但是还是有segmentation fault。
 还是要用QEMU模拟MIPS测试....
 
-## 0x06 qemu模拟mips运行tor
+## qemu模拟mips运行tor
 
 转到Ubuntu的
 拷贝buildroot编译成的rootfs.tar（buildroot-2011.05 /output/ images）
