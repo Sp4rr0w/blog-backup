@@ -58,7 +58,7 @@ footer:
 
   theme:
     # Theme & scheme info link (Theme - NexT.scheme).
-    enable: false
+    enable: true
     # Version info of NexT after scheme info (vX.X.X).
     version: false
   # -------------------------------------------------------------
@@ -151,7 +151,8 @@ links_layout: block
 links:
   以前的CSDN: http://blog.csdn.net/clownstar
   dalao c0sMx: https://www.c0smx.com/
-
+  dalao woadZS: https://woadzs.me/
+  dalao riesa: https://riesa.me/
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
 # in site  directory(source/uploads): /uploads/avatar.gif
@@ -383,7 +384,7 @@ valine:
   appid: XzzzFqxY7zSnAm9am6FHg6do-gzGzoHsz # your leancloud application appid
   appkey: aaBboz6UbNeJnPowxKNNDTm2 # your leancloud application appkey
   notify: true # mail notifier , https://github.com/xCss/Valine/wiki
-  verify: false # Verification code
+  verify: true # Verification code
   placeholder: Just go go # comment box placeholder
   avatar: wavatar # gravatar style
   guest_info: nick,mail,link # custom comment header

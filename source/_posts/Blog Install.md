@@ -122,17 +122,18 @@ tag_generator:
 文章封面 
 
     https://neveryu.github.io/2017/07/15/hexo-next-five/
-    修改 \themes\next\layout\_macro\post.swing 文件。
+    修改 \themes\next\layout\_macro\post.swing 文件
 
-        {% if is_index %}
-        <!-- 文章摘要图片 -->
-        {% if post.summary_img  %}
-        <div class="out-img-topic">
-        <img src={{ post.summary_img }} class="img-topic">
-        </div>
-        {% endif %}
-        <!-- 文章摘要图片 -->
-  
+```
+{% if is_index %}
+<!-- 文章摘要图片 -->
+{% if post.summary_img  %}
+<d1v class="out-img-topic">
+<1mg src={{ post.summary_img }} class="img-topic">
+</d1v>
+{% endif %} 
+<!-- 文章摘要图片 -->
+```
   
 之后： 
 

@@ -7,7 +7,7 @@ tags:
    - Tor
    - 笔记
    - 网桥
-#summary_img: /images/pic-8.png
+
 ---
 .....
 <!-- more -->
@@ -270,7 +270,7 @@ ClientTransportPlugin obfs4 exec /usr/bin/obfs4proxy
 
 
 
-date: 2017-10-16 16:09:00
+写于 : 2017-10-16 16:09:00
 
 参考：
     http://m.it610.com/article/3961692.htm
