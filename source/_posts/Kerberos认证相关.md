@@ -10,9 +10,8 @@ tags:
 #summary_img: /images/material-2.png
 ---
 
-.....
-<!-- more -->
-## Kerberos认证过程 (简易版)
+
+## 0x01 Kerberos认证过程 (简易版)
 
 认证或请求服务 的过程如下: 
 ![认证或请求服务](Kerberos认证相关/simple.jpg)
@@ -40,9 +39,9 @@ tags:
 5. Client-A ----------------------------------------------------------==> Server-B (Client-A把服务票据中的服务器部分和请求一起发送到Server-B(Client-A要访问活动目录中的主机),远程服务器将直接接受该服务器票据,并不需要和KDC直接通信,因为该票据是用远程服务器和KDC共享的长期密钥加密过的)
 ```
 
+<!-- more -->
 
-
-## Kerberos认证过程 (详细版)
+## 0x02 Kerberos认证过程 (详细版)
 ![详细版](Kerberos认证相关/Kerberos.jpg)
 
 认证或请求服务 的过程如下: 
@@ -91,7 +90,7 @@ tags:
     白银票据 - 此过程5可以伪造TGS(前提是获取服务账号的口令散列值)，宣称自己是域内任何账号，例如域管，这是白银票据的原理。
 
 
-## 术语 
+## 0x03 术语 
 ### Kerberos
 
 是Windows活动目录中使用的客户/服务器认证协议(windows中的认证协议有两种NTLM和Kerberos),为通信双方提供双向身份认证。
@@ -183,7 +182,7 @@ LSA管理本地安全策略、管理审计策略和设置、为用户生成包�
     4. SSPI现在发送请求到下一个安全提供程序——NTLM。NTLM SSP会将请求交给Netlogon服务针对LSAM (Local Security Account Manager,本地安全账户管理器)数据库进行身份认证。使用NTLM SSP的身份认证过程与Windows NT系统的身份认证方法是相同的。
 
 
-## 相关 
+## 0x05 相关 
 
 **krbtgt 密码**
 
@@ -206,12 +205,11 @@ KDC验证证书上的签名是否源于可信实体。然后KDC发送公钥证�
 也就意味着智能卡认证仅能用于登录域中的计算机。
 
 
-## 參考
-```
-深入解读MS14-068漏洞:微软精心策划的后门?
-	http://www.freebuf.com/vuls/56081.html
-敞开的地狱之门:Kerberos协议的滥用
-	http://www.freebuf.com/articles/system/45631.html
-你所不知道的Kerberos 整理笔记(三)
-	http://www.voidcn.com/article/p-nnpovuml-ng.html
-```
+## 0x06 Reference
+
+	深入解读MS14-068漏洞:微软精心策划的后门?
+		http://www.freebuf.com/vuls/56081.html
+	敞开的地狱之门:Kerberos协议的滥用
+		http://www.freebuf.com/articles/system/45631.html
+	你所不知道的Kerberos 整理笔记(三)
+		http://www.voidcn.com/article/p-nnpovuml-ng.html

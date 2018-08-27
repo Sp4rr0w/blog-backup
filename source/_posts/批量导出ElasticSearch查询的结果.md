@@ -47,7 +47,7 @@ tags:
 	
 cd es2csv文件夾 运行： 
 
-	python3 es2csv_new.py -u http://9.9.9.10:9200 -q 'gov.vn' -i _all -e -f 邮箱-EMAIL 明文密码-PASSWORD -o file-new.csv -k
+	python3 es2csv_new.py -u http://9.9.9.10:9200 -q 'xx.cc' -i _all -e -f 邮箱-EMAIL 明文密码-PASSWORD -o file-new.csv -k
 		Found 1846 results
 		Run query [#####] [1846/1846] [100%] [0:00:00] [Time: 0:00:00] [ 3.92 kdocs/s]
 		To csv [######] [614/614] [100%] [0:00:00] [Time: 0:00:00] [ 15.35 klines/s]

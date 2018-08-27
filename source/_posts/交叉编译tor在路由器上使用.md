@@ -9,9 +9,8 @@ tags:
    - 路由器
 #summary_img: /images/material-13.png
 ---
-.....
-<!-- more -->
-## 正常编译tor 
+
+## 0x01 正常编译tor 
 
 Router Model : RT-AC66U
 Router CPU : MIPS32
@@ -30,6 +29,7 @@ src/config/torrc   # torrc
 src/or/tor -f src/config/torrc &
 ```
 
+<!-- more -->
 直接交叉编译tor 是有问题的
 结合上篇文章编译buildroot生成的buildroot-2011.05下/output/ 相关编译文件:
 ```
@@ -133,7 +133,7 @@ https://zlib.net/zlib-1.2.11.tar.gz
 `----------------------------------------------------------------------`
 
 
-## 交叉编译 openssl 
+## 0x02 交叉编译 openssl 
 ```
 $ CC=/root/Desktop/8/buildroot-2011.05/output/host/usr/bin/mipsel-linux-gcc AR=/root/Desktop/8/buildroot-2011.05/output/host/usr/bin/mipsel-linux-ar RANLIB=/root/Desktop/8/buildroot-2011.05/output/host/usr/bin/mipsel-linux-ranlib LD=/root/Desktop/8/buildroot-2011.05/output/host/usr/bin/mipsel-linux-ld STRIP=/root/Desktop/8/buildroot-2011.05/output/host/usr/bin/mipsel-linux-strip ./config --prefix=/root/Desktop/cross/yes/openssl 
 ```
@@ -245,7 +245,7 @@ ok编译成功
 
 ----------------------------------------------------------------------
 
-## 交叉编译 libevent
+## 0x03 交叉编译 libevent
 ```
 $ ./configure --prefix=/root/Desktop/cross/yes/libevent CC=$MIPSEL_LINUX_PATH2/mipsel-linux-gcc AR=$MIPSEL_LINUX_PATH2/mipsel-linux-ar RANLIB=$MIPSEL_LINUX_PATH2/mipsel-linux-ranlib LD=$MIPSEL_LINUX_PATH2/mipsel-linux-ld STRIP=$MIPSEL_LINUX_PATH2/mipsel-linux-strip --host=mipsel-linux 
 ```
@@ -287,7 +287,7 @@ libevent-2.1.so.6.0.2: ELF 32-bit LSB shared object, MIPS, MIPS32 version 1 (SYS
 ```
 `编译成功 `
 
-## 交叉编译 zlib 
+## 0x04 交叉编译 zlib 
 ```
 $ ./configure --prefix=/root/Desktop/cross/yes/zlib
 $ CC=$MIPSEL_LINUX_PATH2/mipsel-linux-gcc AR=$MIPSEL_LINUX_PATH2/mipsel-linux-ar RANLIB=$MIPSEL_LINUX_PATH2/mipsel-linux-ranlib
@@ -317,7 +317,7 @@ libz.so.1.2.11: ELF 32-bit LSB shared object, MIPS, MIPS32 version 1 (SYSV), dyn
 	
 ----------------------------------------------------------------------
 	
-## 交叉编译 tor 
+## 0x05 交叉编译 tor 
 ```
 $ CC=$MIPSEL_LINUX_PATH2/mipsel-linux-gcc AR=$MIPSEL_LINUX_PATH2/mipsel-linux-ar RANLIB=$MIPSEL_LINUX_PATH2/mipsel-linux-ranlib LD=$MIPSEL_LINUX_PATH2/mipsel-linux-ld STRIP=$MIPSEL_LINUX_PATH2/mipsel-linux-strip ./configure --host=mipsel-linux --disable-tool-name-check --prefix=/root/Desktop/cross/yes/tor --enable-static-libevent --with-libevent-dir=/root/Desktop/cross/yes/libevent --enable-static-openssl --with-openssl-dir=/root/Desktop/cross/yes/openssl2 --enable-static-zlib --with-zlib-dir=/root/Desktop/cross/yes/zlib
 ```
@@ -489,7 +489,7 @@ wget http://ip/tor 即可.
 但是还是有segmentation fault。
 还是要用QEMU模拟MIPS测试....
 
-## qemu模拟mips运行tor
+## 0x06 qemu模拟mips运行tor
 
 转到Ubuntu的
 拷贝buildroot编译成的rootfs.tar（buildroot-2011.05 /output/ images）

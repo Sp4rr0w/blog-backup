@@ -39,18 +39,18 @@ sudo npm install shelljs --save
 _config.yml.
 deploy:
   type: git
-  repo: git@github.com:Sp4rr0w/sp4rr0w.github.io.git
+  repo: git@github.com:yourgithubname/yourgithubname.github.io.git
   branch: master
 
 backup:
     type: git
     theme: landscape,next
     repository:
-       github: git@github.com:Sp4rr0w/blog-backup.git,master
+       github: git@github.com:yourgithubname/blog-backup.git,master
        
-git config --global user.name "sp4rr0w"
-git config --global user.email "zbxzyzbx@163.com"
-ssh-keygen -t rsa -C "zbxzyzbx@163.com"
+git config --global user.name "yourgithubname"
+git config --global user.email "z....x@xxx.com"
+ssh-keygen -t rsa -C "z....x@xxx.com"
  ==> id_rsa.pub 
   profile -> Settings -> SSH and GPG Keys -> Add new SSH key
   
@@ -146,3 +146,49 @@ tag_generator:
     summary_img: /images/avatar.png
     ---
 
+
+
+```
+
+
+https://github.com/Neilpang/acme.sh/wiki/dns-manual-mode
+申请SSL(Secure socket layer) Server Certificate证书
+https://github.com/Neilpang/acme.sh
+    acme.sh 实现了 acme 协议, 可以从 letsencrypt 生成免费的证书.
+    一般来说是收费的，只有letsencrypt免费，谷歌浏览器登陆有letsencrypt免费证书的网页也会显示绿色的图标，因为也是安全的SSL
+    dns 方式, 在域名上添加一条 txt 解析记录, 验证域名所有权
+    你不需要任何服务器, 不需要任何公网 ip, 只需要 dns 的解析记录即可完成验证. 
+    坏处是，如果不同时配置 Automatic DNS API，使用这种方式 acme.sh 将无法自动更新证书，每次都需要手动再次重新解析验证域名所有权。
+1. DNS manual mode
+acme.sh --issue -d example.com --dns --yes-I-know-dns-manual-mode-enough-go-ahead-please
+
+2. Please add the TXT record to your DNS records. 
+   Domain: '_acme-challenge.1sparrow.com'
+   TXT value: 'OX5btHmMS1GSWrN01hFomW6l-pSRFccccccw44RCQk'
+3. nslookup -q=txt _acme-challenge.1sparrow.com
+Server:  google-public-dns-a.google.com
+Address:  8.8.8.8
+Non-authoritative answer:
+_acme-challenge.1sparrow.com    text =
+        "OX5btHmMS1GSWrN01hFomW6l-pSRFWXC62bywcccccck"
+        
+4. Now retry with --renew command.
+acme.sh --renew -d example.com --yes-I-know-dns-manual-mode-enough-go-ahead-please
+[Tue Apr 17 21:23:00 EDT 2018] Renew: '1sparrow.com'
+[Tue Apr 17 21:23:06 EDT 2018] Single domain='1sparrow.com'
+[Tue Apr 17 21:23:06 EDT 2018] Getting domain auth token for each domain
+[Tue Apr 17 21:23:06 EDT 2018] Verifying:1sparrow.com
+[Tue Apr 17 21:23:24 EDT 2018] Success
+[Tue Apr 17 21:23:24 EDT 2018] Verify finished, start to sign.
+[Tue Apr 17 21:23:30 EDT 2018] Cert success.
+
+==> 
+but github can't enforce https for custom domain
+所以使用netlify 
+走亚马逊的CDN
+国内访问比github快
+支持自定义域名和证书
+免费
+
+
+```

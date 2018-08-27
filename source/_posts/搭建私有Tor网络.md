@@ -10,10 +10,9 @@ tags:
    - 中继
    - 权威目录服务器
 ---
-.....
-<!-- more -->
 
-# 搭建私有Tor网络 ( private Tor network)
+
+## 0x00 搭建私有Tor网络 ( private Tor network)
 
 RS1 ： Tor Client (客户端)	
 
@@ -23,13 +22,14 @@ RS3 ： Tor Bridge relay	(网桥)
 
 RS4 ： Authority Server (权威目录服务器)
 
+<!-- more -->
 
 权威服务器(Authority Server)必须和洋葱路由器(Tor)在同一时间
 
     apt-get install tor ntpdate 
     ntpdate time.nist.gov 
 
-## 配置权威目录服务器RS4(Setup Authority Server on RS4)  
+## 0x01 配置权威目录服务器RS4(Setup Authority Server on RS4)  
 
 (1). 运行以下命令生成的权威密钥(authority keys)
 
@@ -113,7 +113,7 @@ finger2 : /var/lib/tor/fingerprint
 	'Unnamed C78C7376A09461466F95C56E36199148058FBF84'
 	===> finger2 = C78C 7376 A094 6146 6F95 C56E 3619 9148 058F BF84
 
-## 配置客户端(Tor Client) 
+## 0x02 配置客户端(Tor Client) 
 (1) 生成router keys
 
     tor --list-fingerprint --orport 1 \
@@ -144,7 +144,7 @@ gedit /etc/tor/torrc
 	
 service tor start
 
-## 配置中继和退出节点(以及网桥) 
+## 0x03 配置中继和退出节点(以及网桥) 
 ### 配置中继节点 Tor Relay (s)
 
 (1) 生成router keys
@@ -190,7 +190,7 @@ service tor start
     ExitRelay 1
 
 
-## 配置网桥 Bridge relay
+## 0x04 配置网桥 Bridge relay
 Ubuntu
 
 must have External IP 
@@ -219,7 +219,7 @@ sudo cat /var/lib/tor/fingerprint
 
 
 
-## 使用网桥 UseBridges 
+## 0x05 使用网桥 UseBridges 
 
     UseBridges 1
     Bridge obfs4 89.46.73.150:41595 BE158D7939B8C95C54F07C50D7EBE50BEDA68C4D cert=3OCxcKIP+9UmUUVJPgjArM95dpZUDJv6+uFR35KlKy6JzkxbN3llrvE1jNzhFPWaX2mgZw iat-mode=0
@@ -230,20 +230,20 @@ sudo cat /var/lib/tor/fingerprint
 
 firefox : socks5 ---> 127.0.0.1 9050
 
-## Test The Private Network
+## 0x06 Test The Private Network
 
 在RS1，设置火狐为"127.0.0.1:9011" SOCKS5
 Wireshark来观看每RS1访问http://192.168.1.4
 
 
 
-参考 
+## 0x07 Reference 
 
-https://www.torproject.org/docs/tor-manual-dev.html.en
+	https://www.torproject.org/docs/tor-manual-dev.html.en
 
-https://ritter.vg/blog-run_your_own_tor_network.html
+	https://ritter.vg/blog-run_your_own_tor_network.html
 
-http://fengy.me/prog/2015/01/09/private-tor-network/
+	http://fengy.me/prog/2015/01/09/private-tor-network/
 
 
 写于 : 2017-10-30 16:09:00

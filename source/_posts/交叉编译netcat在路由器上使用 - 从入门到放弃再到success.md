@@ -9,41 +9,39 @@ tags:
    - 路由器
 #summary_img: /images/material-5.png
 ---
-.....
-<!-- more -->
-## 路由器架构
-Author : https://sp4rr0w.github.io 
+
+## 0x00 路由器架构
+Author : Sparrow
 Time : 2017-11-27 22:25:51
 Router Model : RT-N12
 Router CPU : MIPS32
 
-```
-admin@RT-N12:/tmp/home/root
-cat /proc/cpuinfo
-system type             : Broadcom BCM53572 chip rev 1 pkg 8
-processor               : 0
-cpu model               : MIPS 74K V4.9
-BogoMIPS                : 149.91
-wait instruction        : no
-microsecond timers      : yes
-tlb_entries             : 32
-extra interrupt vector  : no
-hardware watchpoint     : yes
-ASEs implemented        : mips16 dsp
-shadow register sets    : 1
-VCED exceptions         : not available
-VCEI exceptions         : not available
+	admin@RT-N12:/tmp/home/root
+	cat /proc/cpuinfo
+	system type             : Broadcom BCM53572 chip rev 1 pkg 8
+	processor               : 0
+	cpu model               : MIPS 74K V4.9
+	BogoMIPS                : 149.91
+	wait instruction        : no
+	microsecond timers      : yes
+	tlb_entries             : 32
+	extra interrupt vector  : no
+	hardware watchpoint     : yes
+	ASEs implemented        : mips16 dsp
+	shadow register sets    : 1
+	VCED exceptions         : not available
+	VCEI exceptions         : not available
 
-unaligned_instructions  : 51078121
-dcache hits             : 2147483648
-dcache misses           : 0
-icache hits             : 2147483648
-icache misses           : 0
-instructions            : 2147483648
-```
-    
+	unaligned_instructions  : 51078121
+	dcache hits             : 2147483648
+	dcache misses           : 0
+	icache hits             : 2147483648
+	icache misses           : 0
+	instructions            : 2147483648
 
-## 先编译buildroot 
+<!-- more -->
+
+## 0x01 先编译buildroot 
 可知`路由器CPU`为 `MIPS`。由同事告知可以先编译`buildroot`生成的gcc之后再指定编译`netcat`，这样可以在路由器上运行。
 
 `折腾`之路由此开始
@@ -151,7 +149,7 @@ and
 ```
 
 
-## 编译netcat
+## 0x02 编译netcat
 
 下载netcat
 ```
@@ -206,7 +204,7 @@ segmentation fault
 
 
 
-## 转到Ubuntu
+## 0x03 转到Ubuntu
 ```
 sudo apt-get install qemu
     ==>

@@ -127,7 +127,7 @@ scheme: Mist
 # Value before `||` delimeter is the target permalink.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
 social:
-  GitHub: https://github.com/sp4rr0w || github
+  GitHub: https://github.com/xxxxxxxxxxxxxxxxxxxx || github
   E-Mail: mailto:3sparrow@protonmail.com || envelope
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
@@ -149,11 +149,11 @@ links_title: 有趣的人
 links_layout: block
 #links_layout: inline
 links:
-  以前的CSDN: http://blog.csdn.net/clownstar
+  以前的CSDN: http://blog.csdn.net/xxxxxxxxxxxxxxxxxxxxxxxxxx
   dalao c0sMx: https://www.c0smx.com/
-  dalao woadZS: https://woadzs.me/
   dalao riesa: https://riesa.me/
   zering: https://zeringzxh.github.io/
+#dalao woadZS: https://woadzs.me/
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
 # in site  directory(source/uploads): /uploads/avatar.gif
@@ -164,7 +164,7 @@ toc:
   enable: true
 
   # Automatically add list number to toc.
-  number: true
+  number: false
 
   # If true, all words will placed on next lines if header width longer then sidebar width.
   wrap: false

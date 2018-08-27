@@ -9,16 +9,17 @@ tags:
    - 网桥
 
 ---
-.....
-<!-- more -->
 
-## Tor的工作原理
+
+## 0x01 Tor的工作原理
 
 基于TCP连接的匿名通信系统,它可以用于网页浏览、即时消息等通信。
 
 它首先从目录服务器(Directory Server,DS)中获得所有Tor节点信息,然后在Tor节点集合中随机选取一个节点,与它协商密钥,最后与它建立一个安全信道。
 
-## Tor 技术相关
+<!-- more -->
+
+## 0x02 Tor 技术相关
 
 ### 目录服务器(Directory Server)
 
@@ -272,7 +273,8 @@ ClientTransportPlugin obfs4 exec /usr/bin/obfs4proxy
 
 写于 : 2017-10-16 16:09:00
 
-参考：
+## 0x03 Reference 
+
     http://m.it610.com/article/3961692.htm
     http://www.haiyun.me/archives/1059.html
     https://program-think.blogspot.com/2013/11/tor-faq.html
