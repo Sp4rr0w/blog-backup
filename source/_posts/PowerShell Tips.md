@@ -8,12 +8,12 @@ tags:
    - PowerShell
    - 笔记
    - Tips
-
+#summary_img: /images/g.jpg
 ---
 
 
 ## 0x01 PowerShell条件判断
-
+<!-- more -->
 PowerShell Switch 条件
 如果语句中有多路分支,使用IF-ELSEIF-ELSE不友好,可以使用Switch,看起来比较清爽一点。
 下面的例子将If-ElseIF-Else转换成Switch语句
@@ -40,8 +40,6 @@ PowerShell Switch 条件
 		3 {"Chongqing"}
 	}
 	
-
-<!-- more -->
 
 PowerShell IF-ELSEIF-ELSE 条件
 

@@ -7,12 +7,11 @@ categories:
 tags:
    - PowerShell
    - 笔记
-
+summary_img: /images/ps-version.png
 ---
 
-
 ## 0x01 PowerShell简介及特性
-
+<!-- more -->
 Windows PowerShell 是一种命令行外壳程序和脚本环境(相当于 UNIX 系统 BASH),使命令行用户和脚本编写者可以利用.NET Framework的强大功能(因此也支持.NET对象)。
 Windows PowerShell具备以下特性:
 
@@ -24,8 +23,6 @@ Windows PowerShell具备以下特性:
 
 PowerShell Version 
 ![ps-version](PowerShell 基础总结/ps-version.png)
-
-<!-- more -->
 
 各版本独立包下载地址如下：
 

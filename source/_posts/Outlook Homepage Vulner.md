@@ -11,9 +11,9 @@ tags:
 #summary_img: /images/material-xcx.png
 ---
 
-
 ## 0x00 环境介绍
 
+<!-- more -->
 域控制器 ： OWA2013DC - 10.1.0.100   域名：corp.contoso.com
 
 Exchange服务器 ： OWA2013Server - 10.1.0.213    加入域
@@ -35,7 +35,6 @@ hosts: 10.1.0.213	corp.contoso.com	contoso.com		autodiscover.contoso.com
 
     Microsoft Outlook 2010 SP2, Outlook 2013 SP1 and RT SP1, and Outlook 2016 allow an attacker to execute arbitrary commands, due to how Microsoft Office handles objects in memory, aka "Microsoft Outlook Security Feature Bypass Vulnerability."
 
-<!-- more -->
 
 ## 0x01 新建邮箱用户 (Exchange management shell)
 

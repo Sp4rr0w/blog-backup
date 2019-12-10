@@ -8,20 +8,24 @@ tags:
    - 身份验证
    - 笔记
    - SSP&SSPI
+summary_img: /images/pic3.jpg
 ---
 
-
-# Windows 身份验证体系结构
-
+# 0x00 Windows 身份验证体系结构
+<!-- more -->
 https://docs.microsoft.com/zh-cn/windows-server/security/windows-authentication/windows-authentication-architecture
 
 身份验证是指系统验证用户的登录或登录信息时所使用的过程。 用户的名称和密码与授权列表进行比较，如果系统检测到匹配项，则将访问权限授予该用户的权限列表中指定的范围。
 
 作为可扩展体系结构的一部分，Windows Server 操作系统将实现一组默认身份验证安全支持提供程序(SSP)，其中包括 Negotiate、Kerberos 协议、NTLM、Schannel （安全通道）和Digest(摘要)。 
 
+**authn_lsa_architecture_client**
+![authn_lsa_architecture_client](https://docs.microsoft.com/zh-cn/windows-server/security/media/credentials-processes-in-windows-authentication/authn_lsa_architecture_client.gif)
+
+
 这些提供程序使用的协议允许用户、计算机和服务进行身份验证，并且身份验证过程使授权的用户和服务能够安全地访问资源。
  
-## 本地安全机构 LSA 
+## 0x01 本地安全机构 LSA 
 
 本地安全机构（LSA）是一个受保护的子系统，用于对用户进行身份验证并登录到本地计算机。 
 
@@ -39,7 +43,7 @@ LSA验证的过程: LSA通过访问本地SAM(Security Accounts Manager)数据库
     4. SSPI现在发送请求到下一个安全提供程序——NTLM。NTLM SSP会将请求交给Netlogon服务针对LSAM (Local Security Account Manager,本地安全账户管理器)数据库进行身份认证。使用NTLM SSP的身份认证过程与Windows NT系统的身份认证方法是相同的。   
 
 
-## 身份验证安全支持提供程序 SSP & SSPI
+## 0x02 身份验证安全支持提供程序 SSP & SSPI
 
 SSPI(Security Support Provider Interface) 安全支持提供接口
 
@@ -89,7 +93,7 @@ https://docs.microsoft.com/zh-cn/windows-server/security/windows-authentication/
 
 
 
-### msv - NTLM SSP
+### 0x02-1  msv - NTLM SSP
 
 https://github.com/gentilkiwi/mimikatz/blob/master/mimikatz/modules/sekurlsa/kuhl_m_sekurlsa.c
 
@@ -146,7 +150,8 @@ Authentication packages是一些执行认证检查的DLL。
 	1-> 本地MSV1_0 使用Netlogon服务来调用在域控制器上运行的MSV1_0.
 		2-> 域控制器的MSV1_0实例检查域控制器的SAM数据库(上面的3步骤),并将登录结果返回到本地计算机上的MSV1_0. 
 
-交互式登录 (登录域)		
+交互式登录 (登录域)	
+	
     身份验证过程
 	0-> 用户按下Ctrl+Alt+Del组合键，Winlogon 检测到用户按下SAS组合键，调用GINA显示登录对话框，以便输入账号密码。
 	 1-> GINA为Winlogon登录过程收集的登录数据通过 Secur32.dll 传递到LSA, LSA 使用 LsaLogonUser API 为各种各样的用户身份验证 ( LsaLogonUser 支持交互式登录 / 服务登录 / 网络登录 ).
@@ -170,7 +175,7 @@ Authentication packages是一些执行认证检查的DLL。
 				
 
 
-### kerberos
+### 0x02-2 kerberos
 
 是Windows活动目录中使用的客户/服务器认证协议(windows中的认证协议有两种NTLM和Kerberos),为通信双方提供双向身份认证。
 
@@ -197,7 +202,7 @@ KDC(密钥分发中心　Key Distribution Center)有两个服务组成 :
     Internet 协议安全（IPsec）的安全机构身份验证
     用于域用户和计算机 Active Directory 证书服务的证书请求
     
-### tspkg
+### 0x02-3 tspkg
 
 TSPKG - Terminal Services Package  身份验证提供程序
 TSSSP - Terminal Services SSP  终端服务SSP
@@ -205,13 +210,16 @@ SSP - 安全支持提供程序
 
 RDP SSO功能依赖于允许“凭据委派(Credential Delegation)”的 CredSSP / TSSSP / TSPKG 组件。
 
-[通过滥用CredSSP / TSPKG（RDP SSO）即凭据委派，无需管理员或通过Kekeo接触LSASS即可进行凭据盗窃](https://clement.notin.org/blog/2019/07/03/credential-theft-without-admin-or-touching-lsass-with-kekeo-by-abusing-credssp-tspkg-rdp-sso/)
+expend read
+
+    [通过滥用CredSSP / TSPKG（RDP SSO）即凭据委派，无需管理员或通过Kekeo接触LSASS即可进行凭据盗窃](https://clement.notin.org/blog/2019/07/03/credential-theft-without-admin-or-touching-lsass-with-kekeo-by-abusing-credssp-tspkg-rdp-sso/)
  
 凭据委派 Allow delegating default credentials  （类似于记住远程登陆过的密码）
 
-Local Computer Policy –> Computer Configuration –> Administrative Templates –> System –> Credentials Delegation
-双击打开"Allow Delegating Saved Credentials with NTLM-only Server Authentication"， 默认是 "Not configured" 选择"Enabled"
-单击 "Show"按钮，并输入"TERMSRV/*" 到列表中，单击OK保存。
+	Local Computer Policy –> Computer Configuration –> Administrative Templates –> System –> Credentials Delegation
+	双击打开"Allow Delegating Saved Credentials with NTLM-only Server Authentication"， 默认是 "Not configured" 选择"Enabled"
+	单击 "Show"按钮，并输入"TERMSRV/*" 到列表中，单击OK保存。
+
 同样的方法，修改如下的策略：
 
     Allow Delegating Saved Credentials
@@ -222,7 +230,7 @@ tspkg.DLL: TSSSP (Terminal Services SSP)
 
     C:\Windows\System32\tspkg.dll - Web Service Security Package 
 
-### CredSSP 
+### 0x02-4 CredSSP 
 
 配置远程登陆RDP，当选中“Network Layer Authentication”（NLA是网络级身份验证）选项时，它允许在打开图形会话之前进行身份验证。
 
@@ -235,7 +243,7 @@ CredSSP 策略通过使用组策略进行配置，并且默认情况下禁用凭
     位置：%windir%\Windows\System32\credssp.dll
 
 
-### Schannel
+### 0x02-5 Schannel
 
 [TLS/SSL 概述（Schannel SSP）](https://docs.microsoft.com/zh-cn/windows-server/security/tls/tls-ssl-schannel-ssp-overview?redirectedfrom=MSDN)
 
@@ -271,7 +279,7 @@ TLS 协议、SSL 协议、专用通信技术（PCT）协议和数据报传输层
     电子邮件
 
 
-### WDigest
+### 0x02-6 WDigest
 
 Digest 与 NTLM 类似也一种挑战认证的协议，用于轻型目录访问协议（LDAP）和 web 身份验证(IIS)。 摘要式身份验证通过网络以 MD5 哈希或消息摘要形式传输凭据。
 
@@ -294,13 +302,13 @@ Digest SSP （Wdigest）用于以下内容：
 
 wdigest.dll 实现的就是 Advanced digest，而不再是老的 digest 认证协议了。其中一项改变就是，它允许不再存储账号的明文密码。
 
-比如域的 FQDN 为 EAST.COM，域账号为 user01，密码为 123456。那么域控并不会保存 user01 账号的明文密码 123456，而是将 MD5(user01:EAST.COM:123456) 后的29种HASH保存在域数据库中，这样就绕过了需要明文密码的问题。
+    比如域的 FQDN 为 aa.COM，域账号为 user01，密码为 123456。那么域控并不会保存 user01 账号的明文密码 123456，而是将 MD5(user01:aa.COM:123456) 后的29种HASH保存在域数据库中，这样就绕过了需要明文密码的问题。
 
-使用 mimikatz 的 dcsync 或其他功能看到的一大堆 Wdigest 的 Hash，就是这 29 种 Hash。而如果给账号开了 Reversible Encryption ，则 dcscync 会将明文密码读出来
+    使用 mimikatz 的 dcsync 或其他功能看到的一大堆 Wdigest 的 Hash，就是这 29 种 Hash。而如果给账号开了 Reversible Encryption ，则 dcscync 会将明文密码读出来
 
 Reversible Encryption （可逆加密）
 
-默认情况下，域里的所有账号都是关闭这个功能的（在没有 Advanced digest 的时候，关闭了这个功能的域账号将不能使用 digest 进行认证）。所以，域数据库里面默认只保存了密码的 Hash 而没有保存密码本身。
+    默认情况下，域里的所有账号都是关闭这个功能的（在没有 Advanced digest 的时候，关闭了这个功能的域账号将不能使用 digest 进行认证）。所以，域数据库里面默认只保存了密码的 Hash 而没有保存密码本身。
 
 开启 Reversible Encryption 的三种方法：
 
@@ -329,7 +337,7 @@ Mimikatz中sekurlsa::wdigest 实现思路
     (Windows Server 2008 R2及更高版本的系统需要修改注册表)
     位置：%windir%\Windows\System32\kerberos.dll
 
-### Negotiate - SPNEGO
+### 0x02-7 Negotiate - SPNEGO
 
 简单且受保护的 GSS-API 协商机制（ SPNEGO ）构成协商 SSP 的基础，whichcan 用于协商特定身份验证协议。
 
@@ -341,7 +349,7 @@ Mimikatz中sekurlsa::wdigest 实现思路
 
     位置：%windir%\Windows\System32\lsasrv.dll
 
-### PKU2U
+### 0x02-8 PKU2U
 
 Windows 7 和 Windows Server 2008 R2 中引入了 PKU2U 协议，并将其作为 SSP 实现。 
 
@@ -349,7 +357,7 @@ Windows 7 和 Windows Server 2008 R2 中引入了 PKU2U 协议，并将其作为
 
     位置：%windir%\Windows\System32\pku2u.dll
 
-### Exchange 认证
+### 0x02-9 Exchange 认证
 
 身份验证是 Exchange Web Services (EWS) 应用程序的关键部分。
 
@@ -362,7 +370,7 @@ Exchange 提供以下身份验证选项：
     Basic （基本身份验证 - 不再推荐）
 
 
-## Windows 身份验证中的凭据进程
+## 0x03 Windows 身份验证中的凭据进程
 
 Windows 凭据管理是操作系统从**服务或用户接收凭据**的过程，并保护该信息以供将来呈现到身份验证目标。 
 
@@ -374,10 +382,10 @@ Windows 凭据管理是操作系统从**服务或用户接收凭据**的过程�
 
 本地安全信息存储在HKEY_LOCAL_MACHINE\SECURITY下的注册表中。 存储的信息包括策略设置、默认安全值和帐户信息，如缓存的登录凭据。 SAM 数据库的副本也存储在此处，尽管它是写保护的。
 
-https://docs.microsoft.com/zh-cn/windows-server/security/media/credentials-processes-in-windows-authentication/authn_lsa_architecture_client.gif
 
 
-## Windows 身份验证中使用的组策略设置
+
+## 0x04 Windows 身份验证中使用的组策略设置
 
 https://docs.microsoft.com/zh-cn/windows-server/security/windows-authentication/group-policy-settings-used-in-windows-authentication
 
